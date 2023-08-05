@@ -1,5 +1,16 @@
 # Lambda function for deploying static sites to S3/CloudFront on checkin to CodeCommit
 
+## Overview
+
+The purpose of this Lambda function is to be triggered by updates to an AWS CodeCommit repository holding files for a static website, to copy all changed files to a target S3 bucket, and potentially to cache-break a CloudFront distribution targeting that bucket.
+
+## Environmental variables required
+
+DSS_SOURCE_REPO: the name of the CodeCommit repository to query for files
+DSS_TARGET_BUCKET: the name or URN of the bucket to copy to
+DSS_CLOUDFRONT_DISTRIBUTION: the URL of the CloudFront distribution to cache-break (optional.)
+
+
 ## Sample Event JSON
 
 ```
